@@ -9,11 +9,20 @@ const basket = [];
 //   - take an input parameter for a string `item`
 //   - add the new item to the global array `basket`. 
 //   - return `true` indicating the item was added
+//***COMMENTS */
+//  created a function named addItem passing through parameter item (string)
+//  any item passing through the function will be added to the global variable, basket with push() method
+//  **push() method to add item to the end of array
+//  and if the parameter item (string) is added successfully to end of basket's array 
+//  then we want the return to compute true (boolean)
 function addItem(item) {
-let item = basket.push([i]); 
+basket.push(item); 
 return true;
 }
-console.log('Testing addItem:', addItem(item)); 
+console.log('Is apple added to basket?', addItem('apple')); 
+console.log('Is cherry added to basket?', addItem('cherry')); 
+console.log('Is mango added to basket?', addItem('mango')); 
+console.log('Items in basket:',basket);
 
 
 // - Create a function called `listItems`. It should:
