@@ -77,6 +77,7 @@ console.log('Is basket empty?', empty()); //should be true, as we empty out the 
 
 console.log('--- 1. STRETCH GOAL: maxItems global variable ---');
 // 1. Add a global `const` named `maxItems` and set it to 5.
+const maxItems = 5; 
 
 console.log('--- 2. STRETCH GOAL: isFull() function ---');
 //2. Create a function called isFull(). It should:
