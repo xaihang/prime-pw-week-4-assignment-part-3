@@ -85,17 +85,18 @@ console.log('--- 2. STRETCH GOAL: isFull() function ---');
 // - return `false` if the basket contains *less* than max number of items
 // - return `true` otherwise (equal or more than maxItems)
 //***COMMENTS: */
-//
-//
+//  created isFull function when invoked 
+//  we are testing to see if the items inside basket is less than the maxItems
+//  if yes return false 
 //
 function isFull() {
-  if (basket < maxItems) {
+  if (basket.length < maxItems) {
     return false;
   } else {
     return true;
   }
 }
-console.log('items in baskets:', basket); // currently 'empty' 
+console.log('numbers of items in basket:', basket.length); // currently 'empty' 
 console.log('Is basket full?', isFull()); // should be false 
 
 
