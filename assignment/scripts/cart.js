@@ -121,13 +121,14 @@ console.log('--- 3. STRETCH GOAL: Update the required `addItem` function ---');
     //  if it is than return to me 'false' as basket is full!
 
 function updatedItems(item) {
+    
+if (isFull() == false && isFull() < maxItems ) {
+    return addItem(item);
+} else {
+    return false;
+}
 
-    if (isFull() >= maxItems) { 
-        return addItem(item); 
-     } else {
-         return  addItem(item);
-     }
-    }
+}
 
 console.log('Is basket full?', isFull()); // false 
 console.log('Is ginger added to basket?', updatedItems('ginger')); // true
