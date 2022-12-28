@@ -2,10 +2,13 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 
-console.log('--- A. basket global variable and addItem function ---');
+console.log('--- A. basket global variable ---');
 //  Create a global variable named `basket` and set it to an empty array.
 const basket = [];
+console.log('Items in basket:', basket); // console log to see if array is empty and it is
 
+
+console.log('--- B. function addItem() ---');
 // - Create a function called `addItem`. It should:
 //   - take an input parameter for a string `item`
 //   - add the new item to the global array `basket`.
@@ -27,7 +30,8 @@ console.log('Is kiwi added to basket?', addItem('kiwi'));
 console.log('Is pear added to basket?', addItem('pear'));
 console.log('Items in basket:', basket);
 
-console.log('--- B. listItem function ---');
+
+console.log('--- C. function listItem()  ---');
 // - Create a function called `listItems`. It should:
 //   - loop over the items in the `basket` array
 //   - console.log each individual item on a new line
@@ -50,7 +54,7 @@ console.log('single item:', listItems('kiwi'));
 console.log('single item:', listItems('pear'));
 console.log('single item:', listItems('grape')); //undefine because we have not add this item to basket yet - for test purposes only
 
-console.log('--- C. empty function ---');
+console.log('--- D. function empty() ---');
 // - Create a function called `empty`. It should:
 //   - reset the `basket` to an empty array
 //***COMMENTS */
@@ -63,7 +67,7 @@ console.log('--- C. empty function ---');
 //          Therefore, you must check the array length.
 function empty() {
   basket.length = 0; //resets the array; 0 items in basket
-//   // basket.length = 2; //sample: shows that there are 2 items in the basket -- this will return false (boolean)
+//  basket.length = 2; //sample: shows that there are 2 items in the basket -- this will return false (boolean)
   if (basket.length === 0) {
     return true;
   } else {
@@ -71,6 +75,8 @@ function empty() {
   }
 }
 console.log('Is basket empty?', empty()); //should be true, as we empty out the array by assigning the length to 0; otherwise false
+console.log('Numbers of items in basket:', basket.length); 
+
 
 // ************************************************************* //
 // -------------------- STRETCH GOALS ------------------------- //
@@ -79,16 +85,17 @@ console.log('Is basket empty?', empty()); //should be true, as we empty out the 
 console.log('--- 1. STRETCH GOAL: maxItems global variable ---');
 // 1. Add a global `const` named `maxItems` and set it to 5.
 const maxItems = 5;
+console.log('The maximum number of items in basket:', maxItems); // 5
 
-console.log('--- 2. STRETCH GOAL: isFull() function ---');
+
+console.log('--- 2. STRETCH GOAL: function isFull() ---');
 //2. Create a function called isFull(). It should:
 // - return `false` if the basket contains *less* than max number of items
 // - return `true` otherwise (equal or more than maxItems)
 //***COMMENTS: */
-//  created isFull function when invoked 
-//  we are testing to see if the items inside basket is less than the maxItems
-//  if yes return false 
-//
+//  created isFull function when invoked
+//  we are testing to see if the number of items inside basket is less than maxItems
+//  if yes return false (boolean) otherwise return true (boolean)
 function isFull() {
   if (basket.length < maxItems) {
     return false;
@@ -96,17 +103,35 @@ function isFull() {
     return true;
   }
 }
-console.log('numbers of items in basket:', basket.length); // currently 'empty' 
-console.log('Is basket full?', isFull()); // should be false 
+console.log('numbers of items in basket:', basket.length); // currently 'empty' = 0
+console.log('Is basket full?', isFull()); // should be false
 
 
-console.log('--- 3. STRETCH GOAL: update addItem function ---');
+console.log('--- 3. STRETCH GOAL: Update the required `addItem` function ---');
 // 3. Update the required `addItem` function to:
 //   - Use the `isFull` function to prevent more than `maxItems` from being added to the basket.
 //   - If an item was added to the array, return `true`
 //   - If there was no room and the item could not be added return `false`
+//***COMMENTS: */
+//
+//
+function updatedItems(item) {
+    if (isFull() > maxItems) {
+        return false;
+    } else if (addItem(item) > maxItems) {
+        return false;
+    } else {
+        return true;
+    }
+}
+console.log('Is basket full?', isFull()); // false 
+console.log('Can ginger added to the basket?', updatedItems('ginger')); // true
+console.log('Can chive added to the basket?', updatedItems('chive')); //true
+console.log('Can onion added to the basket?', updatedItems('onion')); // true
+console.log('List of items in basket:', basket); // ['ginger', 'chive', 'onion']
 
-console.log('--- 4. STRETCH GOAL: removeItem function ---');
+
+console.log('--- 4. STRETCH GOAL: function removeItem() ---');
 // __________Using Array built-in functions!__________  //
 // 4. Create a function called `removeItem`. It should:
 //   - Take an input parameter for a string `item`
