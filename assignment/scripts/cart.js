@@ -99,7 +99,7 @@ console.log('--- 2. STRETCH GOAL: function isFull() ---');
 function isFull() {
   if (basket.length < maxItems) {
     return false;
-  } else {
+  } else if (basket.length >= maxItems){
     return true;
   }
 }
@@ -115,20 +115,29 @@ console.log('--- 3. STRETCH GOAL: Update the required `addItem` function ---');
 //***COMMENTS: */
 //
 //
+    //  psuedo coding
+    //  isFull have maxItems (5)? 
+    //  if not than return to me: addItem to basket
+    //  if it is than return to me 'false' as basket is full!
+
 function updatedItems(item) {
-    if (isFull() > maxItems) {
-        return false;
-    } else if (addItem(item) > maxItems) {
-        return false;
-    } else {
-        return true;
+
+    if (isFull() >= maxItems) { 
+        return addItem(item); 
+     } else {
+         return  addItem(item);
+     }
     }
-}
+
 console.log('Is basket full?', isFull()); // false 
-console.log('Can ginger added to the basket?', updatedItems('ginger')); // true
-console.log('Can chive added to the basket?', updatedItems('chive')); //true
-console.log('Can onion added to the basket?', updatedItems('onion')); // true
-console.log('List of items in basket:', basket); // ['ginger', 'chive', 'onion']
+console.log('Is ginger added to basket?', updatedItems('ginger')); // true
+console.log('Is chive added to basket?', updatedItems('chive')); //true
+console.log('Is onion added to basket?', updatedItems('onion')); // true
+console.log('Is mint added to basket?', updatedItems('mint')); // true
+console.log('Is rosemary added to basket?', updatedItems('rosemary')); // true
+console.log('Is tumeric added to basket?', updatedItems('tumeric')); // false - only 5 items max!
+console.log('Is cinnamon added to basket?', updatedItems('cinnamon')); // false - only 5 items max!
+console.log('List of items in basket:', basket); // should be ['ginger', 'chive', 'onion', 'mint', 'rosemary']
 
 
 console.log('--- 4. STRETCH GOAL: function removeItem() ---');
@@ -138,3 +147,32 @@ console.log('--- 4. STRETCH GOAL: function removeItem() ---');
 //   - Use [Array.indexOf] to find the index of the first matching item in the basket.
 //   - Use [Array.splice] to remove the first matching item from the basket.
 //   - Return the item removed or `null` if the item was not found
+
+//***COMMENTS */
+// created a function called removedItem passing through item (string) parameter
+//  in the block scope declared a new variable indexItem and assign it to take the indexOf item that is passing through from basket 
+//  then we test it through conditional statement if the return value of item is greater than -1; 
+//  if it is then in return we want to execute the splice method in the basket based on the return value of indexItem
+//  however if the indexItem value returned -1 (NOT FOUND) then return null
+//  Array.indexOf ==> method returns the first index of a value
+//                    method will return -1 IF the value is NOT found
+//                    method starts at a specified index and searches from left to right
+// Array.splice ==>  method can ADD and/or REMOVE an array element
+//                   this method overwrites the original array
+
+function removeItem(item) {
+    const indexItem = basket.indexOf(item);
+
+    if (indexItem > -1) {
+        return basket.splice(indexItem, 1);
+    } else {
+        return null;
+    }
+} 
+console.log('Before - list of items:', basket); //list before item are removed 
+console.log('Item removed:', removeItem('ginger')); // remove ginger from array
+console.log('Item removed:', removeItem('onion')); // remove onion from array
+console.log('Item removed:', removeItem('jello')); // null - because this item is not in the basket to begin with
+console.log('Item removed:', removeItem('chocolate')); // null - because this item is not in the basket to begin with
+console.log('Item removed:', removeItem('cookie')); // null - because this item is not in the basket to begin with
+console.log('After - list of items:', basket); // list after removeItem() invoked
