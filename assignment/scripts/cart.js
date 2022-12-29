@@ -18,16 +18,19 @@ console.log('--- B. function addItem() ---');
 //      **push() method to add item to the end of array
 //      and if the parameter item (string) is added successfully to end of basket's array
 //      then we want the return to be true (boolean)
-function addItem(item) {
-  basket.push(item);
-  return true;
-}
-console.log('Is apple added to basket?', addItem('apple'));
-console.log('Is cherry added to basket?', addItem('cherry'));
-console.log('Is mango added to basket?', addItem('mango'));
-console.log('Is kiwi added to basket?', addItem('kiwi'));
-console.log('Is pear added to basket?', addItem('pear'));
-console.log('Items in basket:', basket); // current list of items in basket
+
+// //original code: see question 3 in stretch goal for *updated* addItem() 
+// function addItem(item) {
+//   basket.push(item);
+//   return true;
+// }
+
+// console.log('Is apple added to basket?', addItem('apple'));
+// console.log('Is cherry added to basket?', addItem('cherry'));
+// console.log('Is mango added to basket?', addItem('mango'));
+// console.log('Is kiwi added to basket?', addItem('kiwi'));
+// console.log('Is pear added to basket?', addItem('pear'));
+// console.log('Items in basket:', basket); // current list of items in basket
 
 console.log('--- C. function listItem()  ---');
 // - Create a function called `listItems`. It should:
@@ -40,11 +43,10 @@ console.log('--- C. function listItem()  ---');
 //      invoked the function listItem() to see the console log
 function listItems() {
   for (let i = 0; i < basket.length; i++) {
-      console.log('single item:', basket[i]);
+    console.log('single item:', basket[i]);
   }
 }
 listItems();
-
 
 console.log('--- D. function empty() ---');
 // - Create a function called `empty`. It should:
@@ -82,14 +84,14 @@ console.log('--- 2. STRETCH GOAL: function isFull() ---');
 //2. Create a function called isFull(). It should:
 // - return `false` if the basket contains *less* than max number of items
 // - return `true` otherwise (equal or more than maxItems)
-//***COMMENTS: 
+//***COMMENTS:
 //      declared a function named isFull
 //      we are testing to see if the number of items inside basket is less than maxItems
 //      if yes return false (boolean) otherwise return true (boolean)
 function isFull() {
   if (basket.length < maxItems) {
     return false;
-  } else if (basket.length >= maxItems) {
+  } else {
     return true;
   }
 }
@@ -102,29 +104,26 @@ console.log('--- 3. STRETCH GOAL: Update the required `addItem` function ---');
 //   - If an item was added to the array, return `true`
 //   - If there was no room and the item could not be added return `false`
 //***COMMENTS:
-//      created function name updatedItems passing item (string) in parameter
-//      when updatedItem is invoked we will be testing the following conditions
-//      first we will check if the basket is full using isFull() and this must be false 
-//      AND isFull() must be less than maxItems (meaning that there's room in the basket for more)
-//      if both those condition are true then in return use the addItem() - add that item to basket
-//      otherwise, we want to return false as there's no room - basket is full
-
-function updatedItems(item) {
-  if (isFull() == false && isFull() < maxItems) {
-    return addItem(item);
+//      created function name addItem passing item (string) in parameter
+//      when the updated addItem() is invoked we will check if isFull() is equal to false - there's room in the basket
+//      if yes than add the new item in the basket with push() method and return true (boolean) - indicating item added to basket
+//      otherwise, return false as there's no room - basket is full
+function addItem(item) {
+  if (isFull() == false) {
+    basket.push(item)
+    return true;
   } else {
     return false;
   }
-}
-
+} 
 console.log('Is basket full?', isFull()); // false
-console.log('Is ginger added to basket?', updatedItems('ginger')); // true
-console.log('Is chive added to basket?', updatedItems('chive')); //true
-console.log('Is onion added to basket?', updatedItems('onion')); // true
-console.log('Is mint added to basket?', updatedItems('mint')); // true
-console.log('Is rosemary added to basket?', updatedItems('rosemary')); // true
-console.log('Is tumeric added to basket?', updatedItems('tumeric')); // false - only 5 items max!
-console.log('Is cinnamon added to basket?', updatedItems('cinnamon')); // false - only 5 items max!
+console.log('Is ginger added to basket?', addItem('ginger')); // true
+console.log('Is chive added to basket?', addItem('chive')); //true
+console.log('Is onion added to basket?', addItem('onion')); // true
+console.log('Is mint added to basket?', addItem('mint')); // true
+console.log('Is rosemary added to basket?', addItem('rosemary')); // true
+console.log('Is tumeric added to basket?', addItem('tumeric')); // false - only 5 items max!
+console.log('Is cinnamon added to basket?', addItem('cinnamon')); // false - only 5 items max!
 console.log('List of items in basket:', basket); // should be ['ginger', 'chive', 'onion', 'mint', 'rosemary']
 
 console.log('--- 4. STRETCH GOAL: function removeItem() ---');
