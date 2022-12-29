@@ -7,7 +7,9 @@ console.log('--- A. basket global variable ---');
 const basket = [];
 console.log('Items in basket:', basket); // console log to see if array is empty and it is
 
-console.log('--- B. function addItem() ---');
+console.log(
+  '--- B. function addItem() - SEE STRETCH GOAL FOR UPDATED function--'
+);
 // - Create a function called `addItem`. It should:
 //   - take an input parameter for a string `item`
 //   - add the new item to the global array `basket`.
@@ -19,7 +21,7 @@ console.log('--- B. function addItem() ---');
 //      and if the parameter item (string) is added successfully to end of basket's array
 //      then we want the return to be true (boolean)
 
-// //original code: see question 3 in stretch goal for *updated* addItem() 
+// //original code: see question 3 in stretch goal for *updated* addItem()
 // function addItem(item) {
 //   basket.push(item);
 //   return true;
@@ -42,11 +44,14 @@ console.log('--- C. function listItem()  ---');
 //      console.log each single item that is in the basket
 //      invoked the function listItem() to see the console log
 function listItems() {
+  
   for (let i = 0; i < basket.length; i++) {
+
     console.log('single item:', basket[i]);
   }
 }
-listItems();
+
+listItems(); // this will show empty because I commented out the original code above for stretched goal below - see question #3 stretch goal
 
 console.log('--- D. function empty() ---');
 // - Create a function called `empty`. It should:
@@ -110,12 +115,12 @@ console.log('--- 3. STRETCH GOAL: Update the required `addItem` function ---');
 //      otherwise, return false as there's no room - basket is full
 function addItem(item) {
   if (isFull() == false) {
-    basket.push(item)
+    basket.push(item);
     return true;
   } else {
     return false;
   }
-} 
+}
 console.log('Is basket full?', isFull()); // false
 console.log('Is ginger added to basket?', addItem('ginger')); // true
 console.log('Is chive added to basket?', addItem('chive')); //true
