@@ -36,21 +36,15 @@ console.log('--- C. function listItem()  ---');
 //***COMMENTS:
 //      declared a function named listItems
 //      inside function added a for loop to loop through each of the items in the basket
-//      if the item is equal to type/value in the basket's index
-//      then return back to us what that item is
-function listItems(item) {
+//      console.log each single item that is in the basket
+//      invoked the function listItem() to see the console log
+function listItems() {
   for (let i = 0; i < basket.length; i++) {
-    if (item === basket[i]) {
-      return item;
-    }
+      console.log('single item:', basket[i]);
   }
 }
-console.log('single item:', listItems('apple'));
-console.log('single item:', listItems('cherry'));
-console.log('single item:', listItems('mango'));
-console.log('single item:', listItems('kiwi'));
-console.log('single item:', listItems('pear'));
-console.log('single item:', listItems('grape')); //undefine because we have not add this item to basket yet - for test purposes only
+listItems();
+
 
 console.log('--- D. function empty() ---');
 // - Create a function called `empty`. It should:
