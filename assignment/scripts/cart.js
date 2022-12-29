@@ -8,8 +8,7 @@ const basket = [];
 console.log('Items in basket:', basket); // console log to see if array is empty and it is
 
 console.log(
-  '--- B. function addItem() - SEE STRETCH GOAL FOR UPDATED function--'
-);
+  '--- B. function addItem() - SEE STRETCH GOAL FOR UPDATED function--');
 // - Create a function called `addItem`. It should:
 //   - take an input parameter for a string `item`
 //   - add the new item to the global array `basket`.
@@ -21,12 +20,11 @@ console.log(
 //      and if the parameter item (string) is added successfully to end of basket's array
 //      then we want the return to be true (boolean)
 
-// //original code: see question 3 in stretch goal for *updated* addItem()
+//_____original code: see question 3 in stretch goal for *updated* addItem()_____
 // function addItem(item) {
 //   basket.push(item);
 //   return true;
 // }
-
 // console.log('Is apple added to basket?', addItem('apple'));
 // console.log('Is cherry added to basket?', addItem('cherry'));
 // console.log('Is mango added to basket?', addItem('mango'));
@@ -46,12 +44,10 @@ console.log('--- C. function listItem()  ---');
 function listItems() {
   
   for (let i = 0; i < basket.length; i++) {
-
     console.log('single item:', basket[i]);
   }
 }
-
-listItems(); // this will show empty because I commented out the original code above for stretched goal below - see question #3 stretch goal
+listItems(); // this will not display because I commented out the original code (addItem()) above for stretched goal below - see question #3 stretch goal
 
 console.log('--- D. function empty() ---');
 // - Create a function called `empty`. It should:
@@ -67,7 +63,7 @@ console.log('--- D. function empty() ---');
 function empty() {
   basket.length = 0; //resets the array; 0 items in basket
   //  basket.length = 2; //sample: shows that there are 2 items in the basket -- this will return false (boolean)
-  if (basket.length === 0) {
+  if (basket.length === 0) { // this step - downward is not needed - but I added just for test purposes
     return true;
   } else {
     return false;
